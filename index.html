@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Carnaval 2026 • Gerador de Eventos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="dot"></span> Carnaval 2026 • Gerador de Eventos</div>
+      <div class="pill">Cole do Excel → preenche A..N → gera quadros (até 10)</div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="grid">
+      <div class="card">
+        <div class="hd">
+          <h1 class="h1">1) Cole (ou digite) na tabela A → N</h1>
+          <p class="sub">
+            Clique em <span class="kbd">A1</span> e cole do Excel. Se o seu navegador bloquear a cola direto na célula,
+            use o campo <b>Importar do Excel</b> logo abaixo.
+            Depois de N existe uma coluna <b>↵</b> com o botão <b>↵ Próxima</b> para pular para a próxima linha.
+          </p>
+        </div>
+        <div class="bd">
+          <div class="btnbar">
+            <button class="primary" id="btn-generate">Gerar quadros</button>
+            <button id="btn-example">Carregar exemplo</button>
+            <button id="btn-clear">Limpar</button>
+            <button id="copy-all">Copiar todos os quadros (Word)</button>
+          </div>
+
+          <div class="toast" id="toast"></div>
+
+          <div style="margin-top:12px">
+            <div class="label">Importar do Excel (use se não conseguir colar na célula)</div>
+            <div class="row" style="align-items:stretch">
+              <textarea id="import-text" class="input" style="min-height:90px;flex:1" placeholder="Cole a(s) linha(s) do Excel aqui e clique em Importar…"></textarea>
+              <button class="primary" id="btn-import" style="height:44px;align-self:flex-start">Importar</button>
+            </div>
+            <div class="small-muted">Isso preenche a grade a partir do <b>A1</b>.</div>
+          </div>
+
+          <hr style="border:0;border-top:1px solid var(--border);margin:14px 0"/>
+
+          <div class="label">Grade A..N (10 linhas)</div>
+          <div class="sheet-wrap" aria-label="Grade Excel">
+            <table class="sheet">
+              <thead>
+                <tr>
+                  <th style="min-width:44px">#</th>
+                  <th>A</th><th>B</th><th>C</th><th>D</th><th>E</th><th>F</th><th>G</th>
+                  <th>H</th><th>I</th><th>J</th><th>K</th><th>L</th><th>M</th><th>N</th><th>↵</th>
+                </tr>
+              </thead>
+              <tbody id="sheet-body"></tbody>
+            </table>
+          </div>
+
+          <div class="footer">
+            Dica: o campo “Quantidade de Agentes” você preenche e colore depois de gerar, no próprio quadro.
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="hd">
+          <h1 class="h1">2) Mapeamento (fixo, igual seu exemplo)</h1>
+          <p class="sub">O quadro usa sempre (fixo): <b>A</b> Evento • <b>B</b> Horário de Concentração • <b>D</b> Data • <b>F</b> Dispersão • <b>H</b> Público Estimado • <b>J</b> Percurso • <b>K</b> Local de Concentração • <b>Agentes</b> você preenche manualmente no quadro.</p>
+        </div>
+        <div class="bd">
+          <div class="small-muted">
+            Para colar no Word com linhas: use “Copiar este quadro (Word)” em cada evento ou “Copiar todos”.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:16px" class="card">
+      <div class="hd">
+        <h1 class="h1">3) Quadros gerados</h1>
+        <p class="sub">Cada quadro permite editar e escolher a cor da “Quantidade de Agentes” antes de copiar para o Word.</p>
+      </div>
+      <div class="bd">
+        <div class="cards" id="out"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      GitHub Pages: suba esses arquivos no repositório e ative em <b>Settings → Pages</b>.
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
